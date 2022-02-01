@@ -11,19 +11,19 @@ let weather = {
     },
     displayWeather: function(data) {
         const {name} = data;
-        const {icon,description} = data.weather[0];
+        const {icon,main} = data.weather[0];
         const {temp, humidity, feels_like} = data.main;
         const {speed} = data.wind;
 
         document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/"+ icon +"@2x.png";
-        document.querySelector(".description").innerText = description;
+        document.querySelector(".main").innerText = main;
         document.querySelector(".temp").innerText= temp + "°C";
         document.querySelector(".feels_like").innerText= "Feels like: " + feels_like + "°C";
         document.querySelector(".humidity").innerText="Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText="Wind speed : " + speed + "m/s";
         document.querySelector(".weather").classList.remove("loading")
-        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + description + "')"
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + main + "')"
     },
     search :function() {
         this.fetchWeather(document.querySelector(".search-bar").value)
