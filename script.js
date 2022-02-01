@@ -15,12 +15,13 @@ let weather = {
         const {temp, humidity, feels_like} = data.main;
         const {speed} = data.wind;
         let x = Math.round(temp);
+        let y = Math.round(feels_like);
 
-        document.querySelector(".city").innerText = "Weather in " + name;
+        document.querySelector(".city").innerText =name;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/"+ icon +"@2x.png";
         document.querySelector(".main").innerText = main;
         document.querySelector(".temp").innerText= x + " °C";
-        document.querySelector(".feels_like").innerText= "Feels like: " + feels_like + " °C";
+        document.querySelector(".feels_like").innerText= "Feels like: " + y + " °C";
         document.querySelector(".humidity").innerText="Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText="Wind speed : " + speed + " m/s";
         document.querySelector(".weather").classList.remove("loading")
